@@ -17,7 +17,7 @@ curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
 sh Miniconda3-latest-MacOSX-arm64.sh
 ```
 
-#### Check
+## Check
 
 check python version
 
@@ -31,19 +31,19 @@ Check pip version
 python3 -m pip --version
 ```
 
-#### Install pytorch-nightly
+## Install pytorch-nightly
 
 ```
 conda install pytorch torchvision torchaudio -c pytorch-nightly
 ```
 
-#### pip
+## pip
 
 ```
 pip3 install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu
 ```
 
-#### Clone the repositories Comfyui & ComfyUI-Manager
+## Clone the repositories Comfyui & ComfyUI-Manager
 
 ```
 git clone https://github.com/comfyanonymous/ComfyUI
@@ -52,7 +52,7 @@ git clone https://github.com/ltdrdata/ComfyUI-Manager
 cd ../
 ```
 
-#### Create and activate a virtual environment
+## Create and activate a virtual environment
 
 Note: You should be in comfyui directory in terminal
 
@@ -61,21 +61,21 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-#### Install the required packages
+## Install the required packages
 
 ```
 python -m pip install -r requirements.txt
 python -m pip install -r custom_nodes/ComfyUI-Manager/requirements.txt
 ```
 
-#### Install PyTorch with Mac M1 support (using Conda and pip3)
+## Install PyTorch with Mac M1 support (using Conda and pip3)
 
 ```
 conda install pytorch torchvision torchaudio -c pytorch-nightly
 pip3 install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu
 ```
 
-#### Verify MPS device availability
+## Verify MPS device availability
 
 (This is not part of the script; it's just a Python snippet to verify the MPS device)
 
@@ -106,7 +106,7 @@ Exit Python snippet
 >>> exit()
 ```
 
-#### Lauch comfyui
+## Lauch comfyui
 
 ```
 python main.py
