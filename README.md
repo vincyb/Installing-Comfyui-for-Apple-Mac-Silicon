@@ -109,5 +109,5 @@ Exit Python snippet
 ## Lauch comfyui
 
 ```
-python main.py
+PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 python3 main.py --force-fp16
 ```
