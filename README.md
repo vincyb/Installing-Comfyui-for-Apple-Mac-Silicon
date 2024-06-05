@@ -30,7 +30,9 @@ Check pip version
 ```
 python3 -m pip --version
 ```
-
+```
+brew install python3
+```
 ## Install pytorch-nightly
 
 ```
