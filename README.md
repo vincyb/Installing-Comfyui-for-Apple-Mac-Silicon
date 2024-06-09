@@ -44,6 +44,12 @@ conda install pytorch torchvision torchaudio -c pytorch-nightly
 ```
 pip3 install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu
 ```
+## Install Tensor Flow
+```
+pip install tensorflow tensorflow-macos tensorflow-metal
+```
+More information (https://developer.apple.com/metal/tensorflow-plugin/)
+
 
 ## Clone the repositories Comfyui & ComfyUI-Manager
 
