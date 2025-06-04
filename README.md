@@ -13,7 +13,11 @@ pip install -r custom_nodes/ComfyUI-Manager/requirements.txt</code></pre><hr sty
 &gt;&gt;&gt; torch.ones(3, device="mps")
 tensor([1., 1., 1.], device='mps:0')
 &gt;&gt;&gt; exit()</code></pre><hr style="font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;"><h2 id="7-run-comfyui-with-mps" class="atx" style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">7. Run ComfyUI with MPS</h2><pre style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;"><code class="fenced-code-block language-bash">export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
-python main.py --use-mps</code></pre><p style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">You can also create a launcher script:</p><p style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">``</p><pre style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;"><code class="fenced-code-block language-bash">#!/bin/bash
+python main.py --use-mps</code></pre>
+
+<p style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">You can also create a launcher script:</p>
+
+<p style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">``</p><pre style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;"><code class="fenced-code-block language-bash">#!/bin/bash
 source comfyui-env/bin/activate
 export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
 python main.py --use-mps</code></pre><p style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">Make it executable:</p><pre style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;"><code class="fenced-code-block language-bash">chmod +x run.sh</code></pre><hr style="font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;"><h2 id="removed-or-deprecated-steps" class="atx" style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">Removed or Deprecated Steps</h2>
@@ -134,22 +138,45 @@ export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
 python main.py
 ```
 
-You can also create a launcher script:
+### 8: launching via Automator using AppleScript:
 
-``
+markdown
 
-```bash
-#!/bin/bash
-source comfyui-env/bin/activate
-export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
-python main.py
-```
+CopyEdit
 
-Make it executable:
+``## Running ComfyUI Automatically on macOS with Automator & AppleScript ### Step 1: Create the `run.sh` script Create a shell script named `run.sh` in your ComfyUI folder with the following content: ```bash #!/bin/zsh cd /Users/yourusername/ComfyUI source comfyui-env/bin/activate export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 python main.py``
 
-```bash
-chmod +x run.sh
-```
+- Replace `/Users/yourusername/ComfyUI` with your actual ComfyUI path.
+  
+- Make the script executable by running:
+  
+  bash
+  
+  CopyEdit
+  
+  `chmod +x /Users/yourusername/ComfyUI/run.sh`
+  
+
+---
+
+### 9: Create an Automator app using AppleScript
+
+1. Open **Automator** and create a new **Application**.
+  
+2. Add the action **Run AppleScript**.
+  
+3. Paste this AppleScript code, updating the path if needed:
+  
+
+applescript
+
+CopyEdit
+
+`tell application "Terminal" activate do script "cd /Users/yourusername/ComfyUI && source comfyui-env/bin/activate && export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 && python main.py" end tell`
+
+4. Save the Automator application anywhere you like (e.g., Desktop).
+  
+5. Double-click the app to launch ComfyUI with your environment activated and MPS enabled.
 
 ---
 
