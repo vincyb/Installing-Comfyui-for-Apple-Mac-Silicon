@@ -138,28 +138,28 @@ export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
 python main.py
 ```
 
-### 8: launching via Automator using AppleScript:
+## 8: Running ComfyUI Automatically on macOS with Automator & AppleScript:
 
-markdown
+Step 1: Create the `run.sh` script Create a shell script named `run.sh` in your ComfyUI folder with the following content: 
 
-CopyEdit
-
-``## Running ComfyUI Automatically on macOS with Automator & AppleScript ### Step 1: Create the `run.sh` script Create a shell script named `run.sh` in your ComfyUI folder with the following content: ```bash #!/bin/zsh cd /Users/yourusername/ComfyUI source comfyui-env/bin/activate export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 python main.py``
+```bash 
+#!/bin/zsh cd /Users/yourusername/ComfyUI
+source comfyui-env/bin/activate
+export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 python main.py
+```
 
 - Replace `/Users/yourusername/ComfyUI` with your actual ComfyUI path.
   
 - Make the script executable by running:
   
-  bash
-  
-  CopyEdit
-  
-  `chmod +x /Users/yourusername/ComfyUI/run.sh`
+  ```bash
+  chmod +x /Users/yourusername/ComfyUI/run.sh
+  ```
   
 
 ---
 
-### 9: Create an Automator app using AppleScript
+## 9: Create an Automator app using AppleScript
 
 1. Open **Automator** and create a new **Application**.
   
@@ -168,11 +168,12 @@ CopyEdit
 3. Paste this AppleScript code, updating the path if needed:
   
 
-applescript
-
-CopyEdit
-
-`tell application "Terminal" activate do script "cd /Users/yourusername/ComfyUI && source comfyui-env/bin/activate && export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 && python main.py" end tell`
+```applescript
+tell application "Terminal"
+    activate
+    do script "cd ~/ComfyUI; ./run.sh"
+end tell
+```
 
 4. Save the Automator application anywhere you like (e.g., Desktop).
   
