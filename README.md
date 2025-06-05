@@ -143,9 +143,26 @@ python main.py
 Step 1: Create the `run.sh` script Create a shell script named `run.sh` in your ComfyUI folder with the following content: 
 
 ```bash 
-#!/bin/zsh cd /Users/yourusername/ComfyUI
+#!/bin/zsh
+
+# Kill any process using port 8188 (ComfyUI default)
+lsof -ti:8188 | xargs kill -9
+
+# Navigate to ComfyUI directory
+cd ~/ComfyUI || exit 1
+
+# Activate virtual environment
 source comfyui-env/bin/activate
-export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 python main.py
+
+# Set MPS-specific environment variable
+export PYTORCH_ENABLE_MPS_FALLBACK=1 PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
+
+# Run ComfyUI
+python main.py --force-fp16 --use-split-cross-attention &  # run in background
+while ! curl -s http://127.0.0.1:8188 > /dev/null; do
+  sleep 1
+done
+open -a "Google Chrome" http://127.0.0.1:8188
 ```
 
 - Replace `/Users/yourusername/ComfyUI` with your actual ComfyUI path.
