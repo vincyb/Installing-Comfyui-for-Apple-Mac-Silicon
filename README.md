@@ -192,7 +192,7 @@ end tell
 
 ---
 
-## ✅ Summary
+## ✅ Summary 
 
 This updated guide simplifies your ComfyUI installation for Apple Silicon and ensures best compatibility with MPS and PyTorch 2025 improvements.
 
